@@ -1,0 +1,59 @@
+index.html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yüzde Hesaplama</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h2>Yüzde Hesaplama</h2>
+  <label>Sayı:</label>
+  <input type="number" id="numberInput" placeholder="Örn: 100" />
+
+  <label>Yüzde (%):</label>
+  <input type="number" id="percentInput" placeholder="Örn: 20" />
+
+  <p class="result" id="result"></p>
+
+  <script>
+    const numberInput = document.getElementById("numberInput");
+    const percentInput = document.getElementById("percentInput");
+    const result = document.getElementById("result");
+
+    function calculate() {
+      const number = parseFloat(numberInput.value);
+      const percent = parseFloat(percentInput.value);
+
+      if (!isNaN(number) && !isNaN(percent)) {
+        const sonuc = (number * percent) / 100;
+        result.textContent = `${number} sayısının %${percent}‘si: ${sonuc}`;
+      } else {
+        result.textContent = "";
+      }
+    }
+
+    numberInput.addEventListener("input", calculate);
+    percentInput.addEventListener("input", calculate);
+  </script>
+</body>
+</html>-
