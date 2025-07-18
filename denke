@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Otomatik Yüzde Hesaplama</title>
+</head>
+<body>
+    <h2>Yüzde Hesaplama</h2>
+    <input type="text" id="input" placeholder="Örnek: 100 %15" style="width: 200px;">
+    <p>Sonuç: <span id="result">-</span></p>
+
+    <script>
+        const input = document.getElementById('input');
+        const result = document.getElementById('result');
+
+        input.addEventListener('input', () => {
+            const val = input.value.trim();
+
+            const regex = /^(\d+)\s*%(\d+)$/;
+            const match = val.match(regex);
+
+            if (match) {
+                const sayi = parseFloat(match[1]);
+                const yuzde = parseFloat(match[2]);
+                const hesap = sayi * (yuzde / 100);
+                result.textContent = hesap.toFixed(2);
+            } else {
+                result.textContent = '-';
+            }
+        });
+    </script>
+</body>
+</html>
+Add index.html
